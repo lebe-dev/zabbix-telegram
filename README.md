@@ -27,7 +27,9 @@ Example of `zabbix-telegram.conf`:
 >[allowed-users]  
 >zabbix-user-name=telegram user id or chat id
 
-**2. Send message:**  
+**3. Send message:**  
+Telegram user will be able to recieve alerts only after adding Telegram bot in contacts
+
 `zabbix-telegram.py username "subject" "body of message"`
   
 ***
@@ -96,7 +98,7 @@ Create bash script:
 ##F.A.Q.##
 
 **1. Where can i get telegram user id?**  
-- Write one message at least to your Telegram bot  
+- Write one message at least to your Telegram bot
 - Set debug level to `DEBUG` (`logging.conf`)  
 - Send trigger notification (action) from zabbix  
 - Check debug.log, you can see picture like this:  
