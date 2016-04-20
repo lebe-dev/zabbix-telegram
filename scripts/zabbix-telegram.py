@@ -62,7 +62,7 @@ def compile_config(config_file_path):
 
 
 if __name__ == '__main__':
-    logging.config.fileConfig('logging.conf')
+    logging.config.fileConfig('/usr/lib/zabbix/alertscripts/logging.conf')
     log = logging.getLogger('logfile')
 
     parser = argparse.ArgumentParser(usage='<to> "<subject>" "<message>"',
