@@ -81,8 +81,8 @@ Create bash script:
 
 **6. Fix rights:**  
   
-`touch /home/zabbix/zabbix-telegram.log`  
-`chmod ug=rw /home/zabbix/zabbix-telegram.log`  
+`touch /usr/lib/zabbix/alertscripts/zabbix-telegram.log`  
+`chmod ug=rw /usr/lib/zabbix/alertscripts/zabbix-telegram.log`  
 ^ depends on zabbix user home directory (check `/etc/passwd`)  
 `chown -R zabbix.zabbix /usr/lib/zabbix/alertscripts/`
 `chmod +x /usr/lib/zabbix/alertscripts/telegram.sh`  
