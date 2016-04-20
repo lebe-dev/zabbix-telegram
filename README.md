@@ -77,7 +77,7 @@ Create bash script:
 `/usr/lib/zabbix/alertscripts/telegram.sh`  
 
 `#!/bin/bash`  
-`/usr/bin/python /usr/lib/zabbix/alertscripts/telegram.py --config /usr/lib/zabbix/alertscripts/zabbix-telegram.conf $1 "$2" "$3"`
+`/usr/bin/python /usr/lib/zabbix/alertscripts/zabbix-telegram.py --config /usr/lib/zabbix/alertscripts/zabbix-telegram.conf $1 "$2" "$3"`
 
 **6. Fix rights:**  
   
