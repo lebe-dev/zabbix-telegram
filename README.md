@@ -113,3 +113,7 @@ Create bash script:
 - Edit `logging.conf`, set all levels to `DEBUG`
 - Activate some test triggers for zabbix
 - Check `zabbix-telegram.log`
+
+##Thanks for contribution##
+- [sheh1000](https://github.com/sheh1000)
+- [Alexey Belaytzev](https://github.com/belaytzev)
