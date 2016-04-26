@@ -77,12 +77,12 @@ Create bash script:
 `/usr/lib/zabbix/alertscripts/telegram.sh`  
 
 `#!/bin/bash`  
-`/usr/bin/python /usr/lib/zabbix/alertscripts/telegram.py --config /usr/lib/zabbix/alertscripts/zabbix-telegram.conf $1 "$2" "$3"`
+`/usr/bin/python /usr/lib/zabbix/alertscripts/zabbix-telegram.py --config /usr/lib/zabbix/alertscripts/zabbix-telegram.conf $1 "$2" "$3"`
 
 **6. Fix rights:**  
   
-`touch /home/zabbix/zabbix-telegram.log`  
-`chmod ug=rw /home/zabbix/zabbix-telegram.log`  
+`touch /usr/lib/zabbix/alertscripts/zabbix-telegram.log`  
+`chmod ug=rw /usr/lib/zabbix/alertscripts/zabbix-telegram.log`  
 ^ depends on zabbix user home directory (check `/etc/passwd`)  
 `chown -R zabbix.zabbix /usr/lib/zabbix/alertscripts/`
 `chmod +x /usr/lib/zabbix/alertscripts/telegram.sh`  
