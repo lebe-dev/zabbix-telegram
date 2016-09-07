@@ -4,15 +4,14 @@ Send [Zabbix](http://zabbix.com) notifications via [Telegram messenger](https://
 
 - Python 2.6+  
 Note for 2.6:   
-`pip install argparse`  
+`pip install argparse`
 
 - TelegramBot account  
 - Zabbix Administrator account
 
 ***
 
-
-##Usage##
+#Usage#
 
 **1. Create your Telegram Bot**
 
@@ -34,7 +33,7 @@ Telegram user will be able to recieve alerts only after adding Telegram bot in c
   
 ***
   
-###Zabbix configuration guide###
+##Zabbix configuration guide##
 
 **1. Create new media type**
 
@@ -59,8 +58,8 @@ Enabled: yes
 
 **3. Configure Zabbix-server**  
   
-Look /etc/zabbix/zabbix_server.conf for `AlertScriptsPath`  
-Default path: `/usr/lib/zabbix/alertscripts/`
+Look `/etc/zabbix/zabbix_server.conf` for `AlertScriptsPath`  
+Default path is `/usr/lib/zabbix/alertscripts/`
 
 **5. Deploy scripts**  
   
@@ -83,7 +82,7 @@ Create bash script:
   
 `touch /usr/lib/zabbix/alertscripts/zabbix-telegram.log`  
 `chmod ug=rw /usr/lib/zabbix/alertscripts/zabbix-telegram.log`  
-^ depends on zabbix user home directory (check `/etc/passwd`)  
+^ depends on zabbix user home directory (check */etc/passwd*)  
 `chown -R zabbix.zabbix /usr/lib/zabbix/alertscripts/`
 `chmod +x /usr/lib/zabbix/alertscripts/telegram.sh`  
 `chown -R zabbix.zabbix /usr/lib/zabbix/alertscripts/`   
@@ -95,25 +94,57 @@ Create bash script:
 "Operations" tab -> select media type `Telegram`
 
 
-##F.A.Q.##
+#F.A.Q.#
 
-**1. Where can i get telegram user id?**  
-- Write one message at least to your Telegram bot
-- Set debug level to `DEBUG` (`logging.conf`)  
-- Send trigger notification (action) from zabbix  
-- Check debug.log, you can see picture like this:  
+##1. Where can i get telegram chat id?##
+
+###Method A###
+
+Big thanks to [sheh1000](https://github.com/sheh1000)
+
+Python 2.7 will be required in near future versions
+
+**1. Install package python-telegram-bot**
+ 
+```
+pip install python-telegram-bot
+```
+
+**2. Write something to bot chat**
+
+**3. Write small script and execute**
+
+```
+import telegram  
+
+bot = telegram.Bot(token='YOUR BOT API TOKEN HERE')  
+
+print bot.getUpdates()[-1].message.chat_id  
+```
+
+**4. You will receive id**
+
+###Method B###
+
+**1. Write one message at least to your Telegram bot**
+
+**2. Set debug level to `DEBUG` (`logging.conf`)**
+  
+**3. Send trigger notification (action) from zabbix**
+  
+- Check *debug.log*, you can see picture like this:  
   
 >2015-09-26 15:41:32,720 DEBUG > active users:  
 >2015-09-26 15:41:32,720 DEBUG > {u'good_fella': 43578235}
 
-`43578235` - is your id
+`43578235` <- is your id
 
-##Troubleshootings##
+#Troubleshootings#
 
 - Edit `logging.conf`, set all levels to `DEBUG`
 - Activate some test triggers for zabbix
 - Check `zabbix-telegram.log`
 
-##Thanks for contribution##
+#Thanks for contribution#
 - [sheh1000](https://github.com/sheh1000)
 - [Alexey Belaytzev](https://github.com/belaytzev)
