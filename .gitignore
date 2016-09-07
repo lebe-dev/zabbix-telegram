@@ -3,7 +3,7 @@
 
 *.iml
 
-scripts/*.conf
+scripts/zabbix*.conf
 
 .gitignore
 
